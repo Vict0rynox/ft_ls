@@ -70,5 +70,5 @@ set(SOURCE_FILES libft.h ft_atoi.c ft_bzero.c
         ft_putstrc_fd.c
         ft_digcount.c
         ft_strlenchr.c
-        ft_lstnew_c.c ft_lstdelone_s.c)
+        ft_lstnew_c.c ft_lstdelone_s.c ft_lstadd_back.c)
 add_library(libft STATIC ${SOURCE_FILES})

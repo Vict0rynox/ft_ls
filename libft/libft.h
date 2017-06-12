@@ -173,6 +173,8 @@ t_list				*ft_lstby_num(t_list *lst_head, unsigned int num);
 t_list				*ft_lstpush_back(t_list **list, void *content,
 									size_t content_size);
 
+t_list				*ft_lstadd_back(t_list **list, t_list *lst);
+
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 size_t				ft_strlenchr(const char *s, char c);
