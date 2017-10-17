@@ -1,3 +1,5 @@
+#include <sys/stat.h>
+#include <math.h>
 #include "filter_dirdata.h"
 #include "file.h"
 
@@ -29,6 +31,82 @@ t_list *hiden_data_filter(t_list *lst_dirdata)
 	return NULL;
 }
 
+t_list *list_reverse(t_list *lst)
+{
+	t_list *new_lst;
+	t_list *lst_next;
+
+	new_lst = NULL;
+	if(lst == NULL)
+		return NULL;
+	while (lst != NULL)
+	{
+		lst_next = lst->next;
+		ft_lstadd(&new_lst, lst);
+		lst = lst_next;
+	}
+	return (new_lst);
+}
+
+void ft_lstsort_step(int (*sort_func)(void *, void *),
+		t_list **prew, t_list **curr, t_list **start)
+{
+	t_list *next;
+
+	if(sort_func == NULL || prew == NULL || curr == NULL || start == NULL)
+		return ;
+	if(sort_func((*curr)->content, (*curr)->next->content) < 0)
+	{
+		next = (*curr)->next;
+		(*curr)->next = next->next;
+		next->next = (*curr);
+		if(*prew == NULL)
+			(*start) = next;
+		else
+			(*prew)->next = next;
+		*prew = next;
+	}
+	else
+	{
+		(*prew) = (*curr);
+		(*curr) = (*curr)->next;
+	}
+}
+
+void	ft_lstsort(t_list **list, int sort_func(void *data1, void *data2))
+{
+	t_list *curr;
+	t_list *prew;
+	size_t list_size;
+	int	i;
+
+	if(list == NULL || (*list) == NULL || (*list)->next == NULL)
+		return;
+	i = 0;
+	list_size = ft_lstsize(*list) * 2;
+	while (i < list_size)
+	{
+		curr = *list;
+		prew = NULL;
+		while (curr != NULL && curr->next != NULL)
+		{
+			ft_lstsort_step(sort_func, &prew, &curr, list);
+			i++;
+		}
+	}
+}
+
+int		file_time_sort(t_file *file1, t_file *file2)
+{
+	long result;
+
+	if(file1 == NULL || file2 == NULL)
+		return NAN;
+	result = file1->stat->st_mtimespec.tv_sec - file2->stat->st_mtimespec.tv_sec;
+	return (int)result;
+}
+
+
 /**
  * lst_dirdata [t_file]
  * @param options
@@ -44,6 +122,9 @@ void filter_dirdata(t_opt_filter options, t_list **lst_dirdata)
 		ft_lstfree_widtoute_data(lst_dirdata);
 		*lst_dirdata = lst_ptr;
 	}
-	//TODO: options.t sorting
-	//TODO: options.r reverse
+	if(options.t == 1)
+		ft_lstsort(lst_dirdata, (int (*)(void *, void *)) file_time_sort);
+	if(options.r == 1)
+		*lst_dirdata = list_reverse(*lst_dirdata);
+
 }

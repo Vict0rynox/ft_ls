@@ -1,6 +1,6 @@
 #include "ft_ls.h"
 #include "file.h"
-
+//TODO: add options -l -R -a -r -t
 //TODO: обработать опции
 	//TODO: могут быть подряд -Rla
 	//TODO: могут быть последовательно -R -l -a
