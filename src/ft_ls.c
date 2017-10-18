@@ -1,4 +1,7 @@
-#include "ft_ls.h"
+#include <ft_ls.h>
+#include <options/dirdata/decorated.h>
+#include <options/dirdata/behavior.h>
+#include <options/dirdata/filter.h>
 
 void print_result(char *result)
 {
@@ -15,18 +18,18 @@ int ft_ls(t_options *options, t_list *lst_path)
 		t_list *lst_dirdata;
 		char *result;
 
-		lst_dirdata = read_directory(lst_path->content);
+		lst_dirdata = read_info(lst_path->content);
 
-		filter_dirdata(options->filter, &lst_dirdata);
+		filter(options->filter, &lst_dirdata);
 
-		tmp = behavior_dirdata(options->behavior, lst_dirdata);
+		tmp = behavior(options->behavior, lst_dirdata);
 		if(tmp!= NULL)
 		{
 			if (lst_path->next != NULL)
 				ft_lstadd_back(&tmp, lst_path->next);
 			lst_path->next = tmp;
 		}
-		result = decorated_dirdata(options->decor, lst_dirdata, lst_path->content);
+		result = decorated(options->decor, lst_dirdata, lst_path->content);
 		print_result(result);
 		lst_path = lst_path->next;
 		//todo: free lst;

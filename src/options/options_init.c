@@ -1,5 +1,6 @@
-#include "options.h"
-
+#include <options/options.h>
+#include <stdlib.h>
+#include <libft.h>
 
 
 void options_init(t_options *options, char *str)

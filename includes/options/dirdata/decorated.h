@@ -14,6 +14,9 @@ struct s_opt_decor
 	char G;
 };
 
-char *decorated_dirdata(t_opt_decor options, t_list *lst_dirdata, char *dir);
+char *decorated(t_opt_decor options, t_list *lst_dirdata, char *dir);
+
+char *decorated_default(t_list *lst_dirdata, const char *dir);
+char *decorated_columns(t_list *lst_dirdata, const char *dir);
 
 #endif

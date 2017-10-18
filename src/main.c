@@ -1,11 +1,16 @@
-#include "ft_ls.h"
-#include "file.h"
+#include <ft_ls.h>
+#include <file.h>
 //TODO: add options -l -R -a -r -t
 //TODO: обработать опции
 	//TODO: могут быть подряд -Rla
 	//TODO: могут быть последовательно -R -l -a
 //TODO: Обработать каждый переданый путь по очереди
 //TODO: Если путей нет, использовать текущую дерикторию в качестве пути
+
+void error_message(char *message)
+{
+	write(STDOUT_FILENO, message, ft_strlen(message));
+}
 
 void print_file(t_list *lst_files)
 {

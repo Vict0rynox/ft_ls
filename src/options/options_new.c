@@ -1,4 +1,5 @@
-#include "options.h"
+#include <options/options.h>
+#include <stdlib.h>
 
 t_options *options_new()
 {
