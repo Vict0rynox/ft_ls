@@ -7,7 +7,7 @@
 //TODO: Обработать каждый переданый путь по очереди
 //TODO: Если путей нет, использовать текущую дерикторию в качестве пути
 
-void error_message(char *pathname, char *message)
+void error_message(const  char *pathname, const char *message)
 {
 	write(STDOUT_FILENO, "ft_ls: ", 7);
 	write(STDOUT_FILENO, pathname, ft_strlen(pathname));

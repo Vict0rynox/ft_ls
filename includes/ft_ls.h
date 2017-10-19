@@ -19,7 +19,7 @@ void print_lisfile(t_list *lst_file);
 
 void print_lispath(t_list *lst_path);
 
-void error_message(char *pathname, char *message);
+void error_message(const  char *pathname, const char *message);
 
 t_list *read_file(char *pathname, t_list **lst_files);
 

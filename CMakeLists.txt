@@ -19,7 +19,7 @@ set(FILE_SOURCE_FILES
         src/file/file_remove.c
         src/file/file_get_type.c
         src/file/file_get_acr.c
-        src/file/file_get_owner.c src/file/file_get_group.c src/file/file_get_mimedate.c src/file/file_get_filename.c src/file/file_get_lcount.c src/file/file_get_size.c src/file/file_get_basename.c src/file/file_get_path.c src/file/file_get_pathname.c)
+        src/file/file_get_owner.c src/file/file_get_group.c src/file/file_get_mimedate.c src/file/file_get_filename.c src/file/file_get_lcount.c src/file/file_get_size.c src/file/file_get_basename.c src/file/file_get_path.c src/file/file_get_pathname.c src/file/file_is_dir.c)
 
 set(OPTIONS_SOURCE_FILES
         src/options/dirdata/behavior.c

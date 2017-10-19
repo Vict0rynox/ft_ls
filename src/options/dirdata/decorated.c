@@ -16,6 +16,6 @@
 char *decorated(t_args *args, t_list *lst_dirdata, char *dir)
 {
 	if(args->l == 1)
-		return decorated_columns(lst_dirdata, dir);
-	return decorated_default(lst_dirdata, dir);
+		return decorated_columns(args, lst_dirdata, dir);
+	return decorated_default(args, lst_dirdata, dir);
 }

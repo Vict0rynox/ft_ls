@@ -41,4 +41,6 @@ char	*file_get_path(char *pathname);
 
 char	*file_get_pathname(char *path, char *name);
 
+t_bool	file_is_dir(const char *pathname);
+
 #endif

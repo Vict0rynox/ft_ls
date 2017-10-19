@@ -36,18 +36,11 @@ t_list *read_directory_data(char *dirname, t_list **lst_files)
 t_list *read_info(char *pathname)
 {
 	t_list *lst_files;
-	struct stat file_stat;
 
 	lst_files = NULL;
-	if(lstat(pathname, &file_stat) == 0) //файл открылся
-	{
-		if(S_ISDIR(file_stat.st_mode)/*&& name[ft_strlen(name) - 1] == '/'*/) //файл дериктория
-			lst_files = read_directory_data(pathname, &lst_files);
-		else
-			lst_files = read_file(pathname, &lst_files);
-		return (lst_files);
-	}
+	if(file_is_dir(pathname))
+		lst_files = read_directory_data(pathname, &lst_files);
 	else
-		error_message(pathname, "No such file or directory.");
+		lst_files = read_file(pathname, &lst_files);
 	return (lst_files);
 }

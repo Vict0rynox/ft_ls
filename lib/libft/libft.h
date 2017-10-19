@@ -20,8 +20,8 @@
 # define ALP_DIFF ('a' - 'A')
 # define DIG_TO_DIGC(c) ((c) >= '0' && (c) <= '9' ? (c) - '0' : 0)
 # define DIGC_TO_DIG(dig) ((dig) + '0')
-# define TRUE 1
-# define FALSE 0
+# define D_TRUE 1
+# define D_FALSE 0
 
 typedef char	t_bool;
 
