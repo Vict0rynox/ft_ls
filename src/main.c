@@ -7,9 +7,13 @@
 //TODO: Обработать каждый переданый путь по очереди
 //TODO: Если путей нет, использовать текущую дерикторию в качестве пути
 
-void error_message(char *message)
+void error_message(char *pathname, char *message)
 {
+	write(STDOUT_FILENO, "ft_ls: ", 7);
+	write(STDOUT_FILENO, pathname, ft_strlen(pathname));
+	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, message, ft_strlen(message));
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 void print_file(t_list *lst_files)
@@ -50,16 +54,15 @@ void print_lispath(t_list *lst_path)
 int main(int argc, char **argv)
 {
 	t_list *lst_path;
-	t_options *options;
+	t_args *options;
 
 	lst_path = NULL;
-	options = options_new();
-
+	options = NULL;
 	int i = 1;
 	while (i < argc)
 	{
 		if(argv[i][0] == '-')
-			options_init(options, argv[i]);
+			new_options_by_string(&options, argv[i]);
 		else
 			ft_lstpush_back(&lst_path, ft_strdup(argv[i]), sizeof(char*));
 		i++;

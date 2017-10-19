@@ -4,17 +4,18 @@
 #include <pwd.h>
 #include <grp.h>
 #include <time.h>
-#include <options/dirdata/decorated.h>
+#include <options/options.h>
+
 
 /**
  * lst_dirdata[t_file]
- * @param options
+ * @param args
  * @param lst_dirdata
  * @return
  */
-char *decorated(t_opt_decor options, t_list *lst_dirdata, char *dir)
+char *decorated(t_args *args, t_list *lst_dirdata, char *dir)
 {
-	if(options.l == 1)
+	if(args->l == 1)
 		return decorated_columns(lst_dirdata, dir);
 	return decorated_default(lst_dirdata, dir);
 }

@@ -1,7 +1,7 @@
 #include <sys/stat.h>
 #include <math.h>
-#include <options/dirdata/filter.h>
 #include <file.h>
+#include <options/options.h>
 
 void ft_lstfree_widtoute_data(t_list **lst)
 {
@@ -109,22 +109,22 @@ int		file_time_sort(t_file *file1, t_file *file2)
 
 /**
  * lst_dirdata [t_file]
- * @param options
+ * @param args
  * @param lst_dirdata
  */
-void filter(t_opt_filter options, t_list **lst_dirdata)
+void filter(t_args *args, t_list **lst_dirdata)
 {
 	t_list *lst_ptr;
 
-	if(options.a == 0)
+	if(args->a == 0)
 	{
 		lst_ptr = ft_lstmap(*lst_dirdata, hiden_data_filter);
 		ft_lstfree_widtoute_data(lst_dirdata);
 		*lst_dirdata = lst_ptr;
 	}
-	if(options.t == 1)
+	if(args->t == 1)
 		ft_lstsort(lst_dirdata, (int (*)(void *, void *)) file_time_sort);
-	if(options.r == 1)
+	if(args->r == 1)
 		*lst_dirdata = list_reverse(*lst_dirdata);
 
 }

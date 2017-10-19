@@ -39,5 +39,6 @@ char	*file_get_basename(char *pathname);
 
 char	*file_get_path(char *pathname);
 
+char	*file_get_pathname(char *path, char *name);
 
 #endif

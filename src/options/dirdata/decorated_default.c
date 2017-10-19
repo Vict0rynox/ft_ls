@@ -1,4 +1,7 @@
-#include <options/dirdata/decorated.h>
+#include <options/options.h>
+#include <sys/ttycom.h>
+#include <file.h>
+#include <sys/ioctl.h>
 
 char *decorated_default(t_list *lst_dirdata, const char *dir) {
 	struct winsize wins;
