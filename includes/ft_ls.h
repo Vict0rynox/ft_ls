@@ -25,4 +25,6 @@ t_list *read_file(char *pathname, t_list **lst_files);
 
 t_list *read_info(char *pathname);
 
+char *ft_char_prefix(char *str, size_t len, char c);
+
 #endif

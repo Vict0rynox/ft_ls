@@ -13,7 +13,7 @@ char *file_get_type(t_file *file)
 	else if (S_ISREG(file->stat->st_mode))
 		c = ft_strdup("-");
 	else if (S_ISDIR(file->stat->st_mode))
-		c = ft_strdup("c");
+		c = ft_strdup("d");
 	else if (S_ISCHR(file->stat->st_mode))
 		c = ft_strdup("c");
 	else if (S_ISBLK(file->stat->st_mode))

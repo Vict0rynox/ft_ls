@@ -4,6 +4,8 @@
 #include <libft.h>
 
 typedef struct s_agrs t_args;
+typedef struct s_file_info t_file_info;
+typedef struct s_file_info_size t_file_info_size;
 
 struct s_agrs
 {
@@ -27,16 +29,16 @@ struct s_file_info
 	char *filename;
 };
 
-struct s_file_info_Size
+struct s_file_info_size
 {
-	size_t size_type;//1
-	size_t size_acr;//9
-	size_t size_lcount;
-	size_t size_owner;
-	size_t size_group;
-	size_t size_size;
-	size_t size_mimedate;//12
-	size_t size_filename;
+	size_t type;//1
+	size_t acr;//9
+	size_t lcount;
+	size_t owner;
+	size_t group;
+	size_t size;
+	size_t mimedate;//12
+	size_t filename;
 };
 
 t_args *new_args();
