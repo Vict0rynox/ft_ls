@@ -1,6 +1,6 @@
 # Compilation
 CC =	gcc
-CFLAGS =	-Wall -Wextra -Werror -std=c11
+CFLAGS =	-std=c11 #-Wall -Wextra -Werror
 ADDFLAGS =
 
 # Default rule
@@ -13,8 +13,8 @@ DST =
 # Directories
 SRCDIR =	src
 OBJDIR =	objs
-INCDIR =	includes\
-			lib/libft
+INCDIR =	includes \
+	lib/libft
 
 # Sources
 
@@ -43,16 +43,16 @@ SRC_OPTIONS = options/dirdata/behavior.c \
 
 SRC = $(SRC_FILE) \
 	$(SRC_OPTIONS) \
-	src/ft_ls.c \
-	src/main.c \
-	src/read_info.c
+	ft_ls.c \
+	main.c \
+	read_info.c
 
 LIB =		ft
 OBJ =		$(SRC:.c=.o)
 
 # Prefixes
 LLIBP =		$(addprefix -l, $(LIB))
-LIBNAME =	$(addprefix lib, $(LIB))
+LIBNAME =	$(addprefix lib/lib, $(LIB))
 
 # Paths foreach
 LIBP =		$(addprefix -L, $(LIBNAME)/)
@@ -97,11 +97,16 @@ all: libcomp $(OBJDIR) $(NAME)
 re: fclean all
 
 # Compilation rules
+pathcat:
+	echo $(INCP)
+	echo $(LIBP)
+	echo $(LLIBP) 
 libcomp:
 	@make all -C $(LIBNAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@echo -e "--$(LOG_CLEAR)$(LOG_VIOLET)$(NAME)$(LOG_NOCOLOR)........................ $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(ADDFLAGS) -c -o $@ $^ $(INCP)
 
 $(OBJDIR):
@@ -110,7 +115,7 @@ $(OBJDIR):
 
 $(NAME): $(OBJP)
 	@echo -e "--$(LOG_CLEAR)$(LOG_VIOLET)$(NAME)$(LOG_NOCOLOR)....................... $(LOG_YELLOW)assembling$(LOG_NOCOLOR)$(LOG_UP)"
-	@$(CC) $(CFLAGS) $(ADDFLAGS) -o $@ $^ $(INCP) $(LIBP) $(LLIBP)
+	$(CC) $(CFLAGS) $(ADDFLAGS) -o $@ $^ $(INCP) $(LIBP) $(LLIBP)
 	@echo -e "--$(LOG_CLEAR)$(LOG_VIOLET)$(NAME)$(LOG_NOCOLOR) compiled............... $(LOG_GREEN)✓$(LOG_NOCOLOR)"
 
 # MrProper's legacy
@@ -119,11 +124,11 @@ clean:
 	@echo -e "--$(LOG_CLEAR)$(LOG_YELLOW)Objects$(LOG_NOCOLOR) deletion............. $(LOG_RED)×$(LOG_NOCOLOR)"
 	@rm -rf $(OBJDIR)
 	@echo -e "$(LOG_CLEAR)$(LOG_BLUE)clean $(LIBNAME)$(LOG_NOCOLOR)"
-	@make clean -C libft/
+	@make clean -C lib/libft/
 
 fclean:
 	@echo -e "$(LOG_CLEAR)$(LOG_BLUE)clean $(LIBNAME)$(LOG_NOCOLOR)"
-	@make fclean -C libft/
+	@make fclean -C lib/libft/
 	@echo -e "$(LOG_CLEAR)$(LOG_BLUE)clean $(NAME)$(LOG_NOCOLOR)"
 	@echo -e "--$(LOG_CLEAR)$(LOG_YELLOW)Objects$(LOG_NOCOLOR) deletion............. $(LOG_RED)×$(LOG_NOCOLOR)"
 	@rm -rf $(OBJDIR)
