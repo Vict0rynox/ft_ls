@@ -9,11 +9,19 @@
 
 void error_message(const  char *pathname, const char *message)
 {
-	write(STDOUT_FILENO, "ft_ls: ", 7);
-	write(STDOUT_FILENO, pathname, ft_strlen(pathname));
-	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, message, ft_strlen(message));
-	write(STDOUT_FILENO, "\n", 1);
+	write(STDERR_FILENO, "ft_ls: ", 7);
+	write(STDERR_FILENO, pathname, ft_strlen(pathname));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, message, ft_strlen(message));
+	write(STDERR_FILENO, "\n", 1);
+}
+
+void illegal_option(const char *options)
+{
+	write(STDERR_FILENO, "ft_ls: illegal option -- ", 25);
+	write(STDERR_FILENO, options, ft_strlen(options));
+	write(STDERR_FILENO, "\nusage: ft_ls [-Raltr] [file ...]\n", 34);
+	exit(1);
 }
 
 int main(int argc, char **argv)
@@ -26,7 +34,7 @@ int main(int argc, char **argv)
 	int i = 1;
 	while (i < argc)
 	{
-		if(argv[i][0] == '-')
+		if(argv[i][0] == '-' && argv[i][1] != '\0')
 			options_by_string(options, argv[i]);
 		else
 			ft_lstpush_back(&lst_path, ft_strdup(argv[i]), sizeof(char*));

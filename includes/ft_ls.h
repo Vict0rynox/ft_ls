@@ -16,6 +16,8 @@ t_list *read_directory_data(char *dirname, t_list **lst_file);
 
 void error_message(const  char *pathname, const char *message);
 
+void illegal_option(const char *options);
+
 t_list *read_file(char *pathname, t_list **lst_files);
 
 t_list *read_info(char *pathname);

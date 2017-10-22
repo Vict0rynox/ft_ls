@@ -1,6 +1,7 @@
 #include <options/options.h>
 #include <stdlib.h>
 #include <libft.h>
+#include <ft_ls.h>
 
 void options_by_string(t_args *args, char *str)
 {
@@ -21,7 +22,10 @@ void options_by_string(t_args *args, char *str)
 				(args)->r = 1;
 			else if(str[i] == 't')
 				(args)->t = 1;
+			else
+				illegal_option(str+1);
 			i++;
 		}
-	}
+	} else
+		illegal_option(str);
 }

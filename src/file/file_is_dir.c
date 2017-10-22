@@ -13,7 +13,5 @@ t_bool	file_is_dir(const char *pathname)
 		else
 			return (D_FALSE);
 	}
-	else
-		error_message(pathname, "No such file or directory.");
 	return (D_FALSE);
 }

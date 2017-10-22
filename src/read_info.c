@@ -9,8 +9,12 @@ t_list *read_file(char *pathname, t_list **lst_files)
 	file = file_new(ft_strdup(pathname));
 	file_stat = (struct stat*)malloc(sizeof(struct stat));
 	if(lstat(file->path_name, file_stat) == 0)
+	{
 		file->stat = file_stat;
-	ft_lstpush_back(lst_files, file, 1);
+		ft_lstpush_back(lst_files, file, 1);
+	}
+	else
+		error_message(pathname, "No such file or directory.");
 	return (*lst_files);
 }
 
