@@ -97,10 +97,7 @@ all: libcomp $(OBJDIR) $(NAME)
 re: fclean all
 
 # Compilation rules
-pathcat:
-	echo $(INCP)
-	echo $(LIBP)
-	echo $(LLIBP) 
+
 libcomp:
 	@make all -C $(LIBNAME)
 
