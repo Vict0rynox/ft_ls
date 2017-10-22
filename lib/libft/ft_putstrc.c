@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putstrc(char const *s, t_color color)
+void	ft_putstrc(char const *s, t_color_enum color)
 {
 	if (s != NULL)
 	{

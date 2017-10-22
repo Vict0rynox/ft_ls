@@ -5,19 +5,29 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
 
 include_directories(.)
 
-set(SOURCE_FILES libft.h ft_atoi.c ft_bzero.c
+set(SOURCE_FILES libft.h get_next_line.h
+        ft_atoi.c
+        ft_bzero.c
+        ft_digcount.c
         ft_isalnum.c
         ft_isalpha.c
         ft_isascii.c
         ft_isdigit.c
+        ft_isnum.c
         ft_isprint.c
         ft_itoa.c
         ft_lstadd.c
+        ft_lstadd_back.c
+        ft_lstby_num.c
         ft_lstdel.c
         ft_lstdelone.c
+        ft_lstdelone_s.c
         ft_lstiter.c
         ft_lstmap.c
         ft_lstnew.c
+        ft_lstnew_c.c
+        ft_lstpush_back.c
+        ft_lstsize.c
         ft_memalloc.c
         ft_memccpy.c
         ft_memchr.c
@@ -34,7 +44,11 @@ set(SOURCE_FILES libft.h ft_atoi.c ft_bzero.c
         ft_putnbr_fd.c
         ft_putstr.c
         ft_putstr_fd.c
+        ft_putstrc.c
+        ft_putstrc_fd.c
+        ft_putstrs.c
         ft_quicksort.c
+        ft_realloc.c
         ft_str_word_ctr.c
         ft_strcat.c
         ft_strchr.c
@@ -49,6 +63,7 @@ set(SOURCE_FILES libft.h ft_atoi.c ft_bzero.c
         ft_strjoin.c
         ft_strlcat.c
         ft_strlen.c
+        ft_strlenchr.c
         ft_strmap.c
         ft_strmapi.c
         ft_strncat.c
@@ -63,12 +78,10 @@ set(SOURCE_FILES libft.h ft_atoi.c ft_bzero.c
         ft_strstr.c
         ft_strsub.c
         ft_strtrim.c
-        ft_tolower.c
         ft_strwordc.c
-        ft_toupper.c ft_realloc.c ft_lstpush_back.c ft_lstby_num.c ft_lstsize.c ft_isnum.c
-        ft_putstrc.c
-        ft_putstrc_fd.c
-        ft_digcount.c
-        ft_strlenchr.c
-        ft_lstnew_c.c ft_lstdelone_s.c ft_lstadd_back.c)
+        ft_tolower.c
+        ft_toupper.c
+        get_next_line.c
+        ft_lstmap.c)
+
 add_library(libft STATIC ${SOURCE_FILES})

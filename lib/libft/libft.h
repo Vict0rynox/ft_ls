@@ -22,10 +22,12 @@
 # define DIGC_TO_DIG(dig) ((dig) + '0')
 # define D_TRUE 1
 # define D_FALSE 0
+# define FT_TYPE_ATOI
+# define CAT(X,TYPE) X##_##TYPE
 
-typedef char	t_bool;
+typedef char		t_bool;
 
-typedef enum	e_color
+typedef enum		e_color
 {
 	RESET,
 	RED,
@@ -34,7 +36,7 @@ typedef enum	e_color
 	GREEN,
 	CYAN,
 	MAGENTA
-}				t_color;
+}					t_color_enum;
 
 typedef struct		s_list
 {
@@ -160,8 +162,6 @@ t_list				*ft_lstnew_c(void *content, size_t content_size);
 
 void				ft_lstdelone(t_list **alst, void(*del)(void *, size_t));
 
-void				ft_lstdelone_s(t_list **alst, void (*del)(void *));
-
 void				ft_lstdel(t_list **alst, void(*del)(void *, size_t));
 
 void				ft_lstadd(t_list **alst, t_list *new);
@@ -181,8 +181,10 @@ size_t				ft_strlenchr(const char *s, char c);
 
 size_t				ft_strwordc(const char *s, char c);
 
-void				ft_putstrc(char const *s, t_color color);
+void				ft_putstrc(char const *s, t_color_enum color);
 
-void				ft_putstrc_fd(char const *s, int fd, t_color color);
+void				ft_putstrc_fd(char const *s, int fd, t_color_enum color);
+
+size_t				ft_putstrs(const char *str);
 
 #endif
