@@ -24,7 +24,11 @@ char *file_get_filename(t_file *file)
 
 	if(!S_ISLNK(file->stat->st_mode))
 		return (ft_strdup(file->name));
-	target_name = ft_strjoin(ft_strjoin(file->path_name, " -> "),
-		file_get_target_name(file->path_name));
+	if(ft_strcmp(file->path, "./"))
+		target_name = ft_strjoin(ft_strjoin(file->name, " -> "),
+			file_get_target_name(file->path_name));
+	else
+		target_name = ft_strjoin(ft_strjoin(file->path_name, " -> "),
+			file_get_target_name(file->path_name));
 	return (target_name);
 }
