@@ -1,6 +1,7 @@
 #include <sys/stat.h>
 #include <math.h>
 #include <file.h>
+#include <libft.h>
 #include <options/options.h>
 
 void ft_lstfree_widtoute_data(t_list **lst)
@@ -31,7 +32,7 @@ t_list *hiden_data_filter(t_list *lst_dirdata)
 	return NULL;
 }
 
-t_list *list_reverse(t_list *lst)
+t_list *ft_lstrev(t_list *lst)
 {
 	t_list *new_lst;
 	t_list *lst_next;
@@ -133,6 +134,6 @@ void filter(t_args *args, t_list **lst_dirdata)
 	if(args->t == 1)
 		ft_lstsort(lst_dirdata, (int (*)(void *, void *)) file_time_sort);
 	if(args->r == 1)
-		*lst_dirdata = list_reverse(*lst_dirdata);
+		*lst_dirdata = ft_lstrev(*lst_dirdata);
 
 }

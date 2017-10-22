@@ -177,6 +177,12 @@ t_list				*ft_lstadd_back(t_list **list, t_list *lst);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+void				ft_lstsort(t_list **list, int sort_func(void *data1, void *data2));
+
+t_list				*ft_lstrev(t_list *lst);
+
+void				ft_lstfree_widtoute_data(t_list **lst);
+
 size_t				ft_strlenchr(const char *s, char c);
 
 size_t				ft_strwordc(const char *s, char c);
