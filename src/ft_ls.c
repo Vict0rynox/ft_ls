@@ -17,8 +17,11 @@ void prepare_pathlst(const t_args *args, t_list *lst_path)
 		if(args->l == 0 && file_is_link(ptr->content))
 		{
 			path = file_get_target_name(ptr->content);
-			free(ptr->content);
-			ptr->content = path;
+			if(file_is_dir(path))
+			{
+				free(ptr->content);
+				ptr->content = path;
+			}
 		}
 		ptr = ptr->next;
 	}
