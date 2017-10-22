@@ -25,7 +25,7 @@ set(OPTIONS_SOURCE_FILES
         src/options/dirdata/behavior.c
         src/options/dirdata/decorated.c
         src/options/dirdata/filter.c
-        src/options/new_options_by_string.c
+        src/options/options_by_string.c
         src/options/new_args.c
         src/options/dirdata/decorated_default.c
         src/options/dirdata/decorated_columns.c

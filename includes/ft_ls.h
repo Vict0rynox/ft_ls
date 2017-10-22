@@ -10,7 +10,6 @@
 #include <sys/errno.h>
 #include <options/options.h>
 
-
 int ft_ls(t_args *args, t_list *lst_path);
 
 t_list *read_directory_data(char *dirname, t_list **lst_file);
