@@ -15,5 +15,6 @@ t_args *new_args()
 	options->r = 0;
 	options->t = 0;
 	options->firt_path = NULL;
+	options->alow_tire = 0;
 	return (options);
 }

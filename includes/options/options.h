@@ -16,7 +16,7 @@ struct s_agrs
 	char G;
 	char R;
 	char *firt_path;
-	char mtof;
+	char alow_tire;
 };
 
 struct s_file_info
