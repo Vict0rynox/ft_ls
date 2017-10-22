@@ -39,7 +39,7 @@ SRC_OPTIONS = options/dirdata/behavior.c \
 	options/dirdata/decorated_default.c \
 	options/dirdata/filter.c \
 	options/new_args.c \
-	options/new_options_by_string.c
+	options/options_by_string.c
 
 SRC = $(SRC_FILE) \
 	$(SRC_OPTIONS) \

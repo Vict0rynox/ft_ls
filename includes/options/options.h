@@ -43,7 +43,7 @@ struct s_file_info_size
 
 t_args *new_args();
 
-void new_options_by_string(t_args **args, char *str);
+void options_by_string(t_args *args, char *str);
 
 t_list *behavior(t_args *args, t_list *lst_dirdata);
 

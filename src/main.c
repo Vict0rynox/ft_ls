@@ -57,12 +57,12 @@ int main(int argc, char **argv)
 	t_args *options;
 
 	lst_path = NULL;
-	options = NULL;
+	options = new_args();
 	int i = 1;
 	while (i < argc)
 	{
 		if(argv[i][0] == '-')
-			new_options_by_string(&options, argv[i]);
+			options_by_string(options, argv[i]);
 		else
 			ft_lstpush_back(&lst_path, ft_strdup(argv[i]), sizeof(char*));
 		i++;
