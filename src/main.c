@@ -24,14 +24,6 @@ void illegal_option(const char *options)
 	exit(1);
 }
 
-void error_read_info(char *pathname)
-{
-	char *str;
-	str = ft_strjoin("ft_ls: ", pathname);
-	perror(str);
-	free(str);
-}
-
 int main(int argc, char **argv)
 {
 	t_list *lst_path;

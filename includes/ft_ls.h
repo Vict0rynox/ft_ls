@@ -18,8 +18,6 @@ void error_message(const char *pathname);
 
 void illegal_option(const char *options);
 
-void error_read_info(char *pathname);
-
 t_list *read_file(char *pathname, t_list **lst_files);
 
 t_list *read_info(char *pathname);

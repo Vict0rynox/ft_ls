@@ -83,7 +83,7 @@ void	ft_lstsort(t_list **list, int sort_func(void *data1, void *data2))
 	if(list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
 	i = 0;
-	list_size = ft_lstsize(*list) * 2;
+	list_size = ft_lstsize(*list) * ft_lstsize(*list);
 	while (i < list_size)
 	{
 		curr = *list;
@@ -101,9 +101,16 @@ int		file_time_sort(t_file *file1, t_file *file2)
 	long result;
 
 	if(file1 == NULL || file2 == NULL)
-		return NAN;
+		return (NAN);
 	result = file1->stat->st_mtimespec.tv_sec - file2->stat->st_mtimespec.tv_sec;
-	return (int)result;
+	return ((int)result);
+}
+
+int		file_alpha_sort(t_file *file1, t_file *file2)
+{
+	if(file1 == NULL || file2 == NULL)
+		return (NAN);
+	return (ft_strcmp(file2->path_name, file1->path_name));
 }
 
 
@@ -116,6 +123,7 @@ void filter(t_args *args, t_list **lst_dirdata)
 {
 	t_list *lst_ptr;
 
+	ft_lstsort(lst_dirdata, (int (*)(void *, void *)) file_alpha_sort);
 	if(args->a == 0)
 	{
 		lst_ptr = ft_lstmap(*lst_dirdata, hiden_data_filter);
