@@ -15,3 +15,17 @@ t_bool	file_is_dir(const char *pathname)
 	}
 	return (D_FALSE);
 }
+
+t_bool	file_is_link(const char *pathname)
+{
+	struct stat file_stat;
+
+	if(lstat(pathname, &file_stat) == 0)
+	{
+		if(S_ISLNK(file_stat.st_mode))
+			return (D_TRUE);
+		else
+			return (D_FALSE);
+	}
+	return (D_FALSE);
+}

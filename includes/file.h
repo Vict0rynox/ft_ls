@@ -41,6 +41,10 @@ char	*file_get_path(char *pathname);
 
 char	*file_get_pathname(char *path, char *name);
 
+char	*file_get_target_name(char *pathname);
+
 t_bool	file_is_dir(const char *pathname);
+
+t_bool	file_is_link(const char *pathname);
 
 #endif
