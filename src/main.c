@@ -16,41 +16,6 @@ void error_message(const  char *pathname, const char *message)
 	write(STDOUT_FILENO, "\n", 1);
 }
 
-void print_file(t_list *lst_files)
-{
-	while (lst_files != NULL)
-	{
-		t_file *file;
-
-		file = (t_file*)lst_files->content;
-		printf("%s\t", file->name);
-
-		lst_files = lst_files->next;
-	}
-}
-
-void print_lisfile(t_list *lst_file)
-{
-	t_file *file;
-	while (lst_file != NULL)
-	{
-		file = (t_file *) lst_file->content;
-		printf("file: %s\n", file->path_name);
-		lst_file = lst_file->next;
-	}
-	printf("\n\n");
-}
-
-void print_lispath(t_list *lst_path)
-{
-	while (lst_path != NULL)
-	{
-		printf("path: %s\n", (char*)lst_path->content);
-		lst_path = lst_path->next;
-	}
-	printf("\n\n");
-}
-
 int main(int argc, char **argv)
 {
 	t_list *lst_path;
