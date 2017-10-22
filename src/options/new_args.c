@@ -14,5 +14,6 @@ t_args *new_args()
 	options->a = 0;
 	options->r = 0;
 	options->t = 0;
+	options->firt_path = NULL;
 	return (options);
 }

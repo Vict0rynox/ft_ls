@@ -8,7 +8,7 @@ char *decorated_default(t_args *args, t_list *lst_dirdata, const char *dir) {
 	t_file *file;
 
 	result = ft_strnew(0);
-	if(file_is_dir(dir) && args->R && (args->firt_path != NULL && ft_strcmp(args->firt_path, dir)))
+	if(file_is_dir(dir) && args->R && ((args->firt_path != NULL && ft_strcmp(args->firt_path, dir)) || args->firt_path == NULL))
 		result = ft_strjoin(result, ft_strjoin(dir, ":\n"));
 	while (lst_dirdata != NULL)
 	{

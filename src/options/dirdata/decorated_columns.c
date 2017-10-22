@@ -167,7 +167,7 @@ char	*decorated_columns(t_args *args, t_list *lst_dirdata, const char *dir)
 	data = ft_strnew(0);
 	if(file_is_dir(dir))
 	{
-		if(args->R && (args->firt_path != NULL && ft_strcmp(args->firt_path, dir)))
+		if(args->R && ((args->firt_path != NULL && ft_strcmp(args->firt_path, dir)) || args->firt_path == NULL))
 			data = ft_strjoin(data, ft_strjoin(dir, ":\n"));
 		data = ft_strjoin(ft_strjoin(data, ft_strjoin("total ", dir_total_size(lst_dirdata))), "\n");
 	}
