@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 	int i = 1;
 	while (i < argc)
 	{
-		if(argv[i][0] == '-' && argv[i][1] != '\0' && !options->alow_tire)
+		if(argv[i][0] == '-' && argv[i][1] != '\0' && !options->alow_tire && lst_path == NULL)
 			options_by_string(options, argv[i]);
 		else
 			ft_lstpush_back(&lst_path, ft_strdup(argv[i]), sizeof(char*));
