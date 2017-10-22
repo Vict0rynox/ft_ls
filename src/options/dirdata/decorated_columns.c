@@ -65,6 +65,8 @@ void size_increas(t_file_info_size *size, t_file_info *file_info)
 	size->group < len ? size->group = len : 0;
 	len = ft_strlen(file_info->size);
 	size->size < len ? size->size = len : 0;
+	len = ft_strlen(file_info->mimedate);
+	size->mimedate < len ? size->mimedate = len : 0;
 	len = ft_strlen(file_info->filename);
 	size->filename < len ? size->filename = len : 0;
 }
