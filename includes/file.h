@@ -47,4 +47,6 @@ t_bool	file_is_dir(const char *pathname);
 
 t_bool	file_is_link(const char *pathname);
 
+t_bool	file_is_adir(char *pathname);
+
 #endif

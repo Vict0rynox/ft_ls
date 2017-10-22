@@ -12,16 +12,19 @@ void error_message(const  char *pathname)
 {
 	char *str;
 
-	str = ft_strjoin("ft_ls: ", pathname);
+	//str = ft_strjoin("ft_ls: ", pathname);
+	str = ft_strjoin("ls: ", pathname);
 	perror(str);
 	free(str);
 }
 
 void illegal_option(const char *options)
 {
-	write(STDERR_FILENO, "ft_ls: illegal option -- ", 25);
-	write(STDERR_FILENO, options, ft_strlen(options));
-	write(STDERR_FILENO, "\nusage: ft_ls [-Raltr] [file ...]\n", 34);
+	//write(STDERR_FILENO, "ft_ls: illegal option -- ", 25);
+	write(STDERR_FILENO, "/bin/ls: illegal option -- ", 27);
+	write(STDERR_FILENO, options, 1);
+	//write(STDERR_FILENO, "\nusage: ft_ls [-Raltr] [file ...]\n", 34);
+	write(STDERR_FILENO, "\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n", 63);
 	exit(1);
 }
 
@@ -49,6 +52,21 @@ int		alpha_sort(char *pathname1, char *pathname2)
 	if(pathname1 == NULL || pathname2 == NULL)
 		return (NAN);
 	return (ft_strcmp(pathname2, pathname1));
+}
+
+t_bool	file_is_adir(char *pathname)
+{
+	t_bool result;
+	if(file_is_dir(pathname))
+		return (D_TRUE);
+	pathname = file_get_target_name(pathname);
+	if(file_is_dir(pathname))
+		result = D_TRUE;
+	else
+		result = D_FALSE;
+	if(pathname != NULL)
+		free(pathname);
+	return (result);
 }
 
 int		type_sort(char *pathname1, char *pathname2)

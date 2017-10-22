@@ -23,7 +23,7 @@ void fill_args(t_args *args, const char *str)
 		else if(str[i] == '1')
 			(void)args;
 		else
-			illegal_option(str+1);
+			illegal_option(&str[i]);
 		i++;
 	}
 }
