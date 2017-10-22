@@ -13,7 +13,7 @@ char *file_get_filename(t_file *file)
 	org_filename = ft_strnew(1024);
 	len = readlink(file->path_name, org_filename, 1024);
 	if(len < 0)
-		error_message(file->path_name, " readlink error.");
+		error_message(file->path_name);
 	tmp = org_filename;
 	org_filename = ft_strncpy(ft_strnew((size_t)len), tmp, (size_t)len);
 	free(tmp);

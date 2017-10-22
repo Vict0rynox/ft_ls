@@ -7,13 +7,13 @@
 //TODO: Обработать каждый переданый путь по очереди
 //TODO: Если путей нет, использовать текущую дерикторию в качестве пути
 
-void error_message(const  char *pathname, const char *message)
+void error_message(const  char *pathname)
 {
-	write(STDERR_FILENO, "ft_ls: ", 7);
-	write(STDERR_FILENO, pathname, ft_strlen(pathname));
-	write(STDERR_FILENO, ": ", 2);
-	write(STDERR_FILENO, message, ft_strlen(message));
-	write(STDERR_FILENO, "\n", 1);
+	char *str;
+
+	str = ft_strjoin("ft_ls: ", pathname);
+	perror(str);
+	free(str);
 }
 
 void illegal_option(const char *options)
@@ -22,6 +22,14 @@ void illegal_option(const char *options)
 	write(STDERR_FILENO, options, ft_strlen(options));
 	write(STDERR_FILENO, "\nusage: ft_ls [-Raltr] [file ...]\n", 34);
 	exit(1);
+}
+
+void error_read_info(char *pathname)
+{
+	char *str;
+	str = ft_strjoin("ft_ls: ", pathname);
+	perror(str);
+	free(str);
 }
 
 int main(int argc, char **argv)

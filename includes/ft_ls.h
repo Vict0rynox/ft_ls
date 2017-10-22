@@ -14,9 +14,11 @@ int ft_ls(t_args *args, t_list *lst_path);
 
 t_list *read_directory_data(char *dirname, t_list **lst_file);
 
-void error_message(const  char *pathname, const char *message);
+void error_message(const char *pathname);
 
 void illegal_option(const char *options);
+
+void error_read_info(char *pathname);
 
 t_list *read_file(char *pathname, t_list **lst_files);
 

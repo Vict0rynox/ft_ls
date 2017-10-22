@@ -1,4 +1,5 @@
 #include <ft_ls.h>
+#include <file.h>
 
 void print_result(char *result)
 {
@@ -16,14 +17,17 @@ int ft_ls(t_args *args, t_list *lst_path)
 
 		lst_dirdata = read_info(lst_path->content);
 		if (lst_dirdata == NULL)
-			return 1;
-		filter(args, &lst_dirdata);
-		tmp = behavior(args, lst_dirdata);
-		if(tmp!= NULL)
+			error_message(lst_path->content);
+		else
 		{
-			if (lst_path->next != NULL)
-				ft_lstadd_back(&tmp, lst_path->next);
-			lst_path->next = tmp;
+			filter(args, &lst_dirdata);
+			tmp = behavior(args, lst_dirdata);
+			if(tmp!= NULL)
+			{
+				if (lst_path->next != NULL)
+					ft_lstadd_back(&tmp, lst_path->next);
+				lst_path->next = tmp;
+			}
 		}
 		result = decorated(args, lst_dirdata, lst_path->content);
 		print_result(result);

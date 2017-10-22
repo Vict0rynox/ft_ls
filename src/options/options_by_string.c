@@ -22,6 +22,8 @@ void options_by_string(t_args *args, char *str)
 				(args)->r = 1;
 			else if(str[i] == 't')
 				(args)->t = 1;
+			else if(str[i] == '1' || str[i] == '-')
+				(void)args;
 			else
 				illegal_option(str+1);
 			i++;

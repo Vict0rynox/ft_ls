@@ -13,8 +13,6 @@ t_list *read_file(char *pathname, t_list **lst_files)
 		file->stat = file_stat;
 		ft_lstpush_back(lst_files, file, 1);
 	}
-	else
-		error_message(pathname, "No such file or directory.");
 	return (*lst_files);
 }
 
