@@ -34,6 +34,8 @@ int main(int argc, char **argv)
 	}
 	if(lst_path == NULL)
 		ft_lstpush_back(&lst_path, "./", sizeof(char*));
+	if(lst_path->next == NULL)
+		options->firt_path = ft_strdup(lst_path->content);
 	ft_ls(options, lst_path);
 	return (0);
 }

@@ -3,7 +3,6 @@
 void print_result(char *result)
 {
 	write(STDOUT_FILENO, result, ft_strlen(result));
-	write(STDOUT_FILENO, "\n", 1);
 }
 
 int ft_ls(t_args *args, t_list *lst_path)
@@ -17,7 +16,7 @@ int ft_ls(t_args *args, t_list *lst_path)
 
 		lst_dirdata = read_info(lst_path->content);
 		if (lst_dirdata == NULL)
-			break ;
+			return 1;
 		filter(args, &lst_dirdata);
 		tmp = behavior(args, lst_dirdata);
 		if(tmp!= NULL)
@@ -29,7 +28,8 @@ int ft_ls(t_args *args, t_list *lst_path)
 		result = decorated(args, lst_dirdata, lst_path->content);
 		print_result(result);
 		lst_path = lst_path->next;
-		//todo: free lst;
+		if(lst_path != NULL)
+			write(STDOUT_FILENO, "\n", 1);
 	}
 	return 0;
 }

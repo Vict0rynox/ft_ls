@@ -84,6 +84,21 @@ char *ft_char_prefix(char *str, size_t len, char c)
 	return (new_str);
 }
 
+char *ft_char_sufix(char *str, size_t len, char c)
+{
+	char *sufix;
+	char *new_str;
+	size_t count;
+
+	count = len - ft_strlen(str);
+	sufix = ft_strnew(count);
+	ft_memset(sufix, c, count);
+	new_str = ft_strjoin(str, sufix);
+	free(sufix);
+	free(str);
+	return (new_str);
+}
+
 char *column_line_gen(t_file_info *info, t_file_info_size size)
 {
 	char *line;
@@ -92,14 +107,14 @@ char *column_line_gen(t_file_info *info, t_file_info_size size)
 	line = ft_strjoin(line, ft_strjoin(
 			ft_char_prefix(info->lcount, size.lcount, ' '), " "));
 	line = ft_strjoin(line, ft_strjoin(
-			ft_char_prefix(info->owner, size.owner, ' '), "  "));
+			ft_char_sufix(info->owner, size.owner, ' '), "  "));
 	line = ft_strjoin(line, ft_strjoin(
-			ft_char_prefix(info->group, size.group, ' '), "  "));
+			ft_char_sufix(info->group, size.group, ' '), "  "));
 	line = ft_strjoin(line, ft_strjoin(
 			ft_char_prefix(info->size, size.size, ' '), " "));
 	line = ft_strjoin(line, ft_strjoin(
 			ft_char_prefix(info->mimedate, size.mimedate, ' '), " "));
-	line = ft_strjoin(line, ft_strjoin(info->filename, " "));
+	line = ft_strjoin(line, info->filename);
 	line = ft_strjoin(line, "\n");
 	return (line);
 }
@@ -152,7 +167,7 @@ char	*decorated_columns(t_args *args, t_list *lst_dirdata, const char *dir)
 	data = ft_strnew(0);
 	if(file_is_dir(dir))
 	{
-		if(args->R)
+		if(args->R && (args->firt_path != NULL && ft_strcmp(args->firt_path, dir)))
 			data = ft_strjoin(data, ft_strjoin(dir, ":\n"));
 		data = ft_strjoin(ft_strjoin(data, ft_strjoin("total ", dir_total_size(lst_dirdata))), "\n");
 	}
