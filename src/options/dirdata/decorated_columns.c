@@ -105,7 +105,7 @@ char *column_line_gen(t_file_info *info, t_file_info_size size)
 {
 	char *line;
 
-	line = ft_strjoin(ft_strjoin(info->type, info->acr), "  ");
+	line = ft_strjoin(ft_strjoin(info->type, info->acr), " ");
 	line = ft_strjoin(line, ft_strjoin(
 			ft_char_prefix(info->lcount, size.lcount, ' '), " "));
 	line = ft_strjoin(line, ft_strjoin(
@@ -132,7 +132,7 @@ t_file_info_size file_info_size_init()
 	size.mimedate = 12;
 	size.filename = 0;
 	size.type = 1;
-	size.acr = 9;
+	size.acr = 10;
 	return (size);
 }
 
