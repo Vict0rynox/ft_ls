@@ -6,30 +6,8 @@ void print_result(char *result)
 	write(STDOUT_FILENO, result, ft_strlen(result));
 }
 
-void prepare_pathlst(const t_args *args, t_list *lst_path)
-{
-	t_list *ptr;
-	char *path;
-
-	ptr  = lst_path;
-	while (ptr != NULL)
-	{
-		if(args->l == 0 && file_is_link(ptr->content))
-		{
-			path = file_get_target_name(ptr->content);
-			if(file_is_dir(path))
-			{
-				free(ptr->content);
-				ptr->content = path;
-			}
-		}
-		ptr = ptr->next;
-	}
-}
-
 int ft_ls(t_args *args, t_list *lst_path)
 {
-	//prepare_pathlst(args, lst_path);
 	while (lst_path != NULL)
 	{
 		t_list *tmp;
