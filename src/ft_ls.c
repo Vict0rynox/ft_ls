@@ -53,7 +53,7 @@ int ft_ls(t_args *args, t_list *lst_path)
 		result = decorated(args, lst_dirdata, lst_path->content);
 		print_result(result);
 		lst_path = lst_path->next;
-		if(lst_path != NULL && file_is_dir(lst_path->content))
+		if(lst_path != NULL && (file_is_dir(lst_path->content)))
 			write(STDOUT_FILENO, "\n", 1);
 	}
 	return 0;

@@ -1,1 +1,1 @@
-touch file12 && chmod 3000 file12 && touch file13 && chmod 4000 file13 && touch file14 && chmod 5000 file14 && touch file15 && chmod 6000 file15 && touch file16 && chmod 7000 file16 && touch file1 && chmod 0777 file1 && touch file2 && chmod 1777 file2 && touch file3 && chmod 2777 file3 && touch file4 && chmod 3777 file4 && touch file6 && chmod 5777 file6 && touch file5 && chmod 4777 file5 && touch file9 && chmod 0000 file9 && touch file7 && chmod 6777 file7 && touch file8 && chmod 7777 file8 && touch file11 && chmod 2000 file11 && touch file10 && chmod 1000 file10
+.FFF.FFFFF
