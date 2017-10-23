@@ -29,14 +29,14 @@ void prepare_pathlst(const t_args *args, t_list *lst_path)
 
 int ft_ls(t_args *args, t_list *lst_path)
 {
-	prepare_pathlst(args, lst_path);
+	//prepare_pathlst(args, lst_path);
 	while (lst_path != NULL)
 	{
 		t_list *tmp;
 		t_list *lst_dirdata;
 		char *result;
 
-		lst_dirdata = read_info(lst_path->content);
+		lst_dirdata = read_info(lst_path->content, args);
 		if (lst_dirdata == NULL)
 			error_message(lst_path->content);
 		else
@@ -53,7 +53,7 @@ int ft_ls(t_args *args, t_list *lst_path)
 		result = decorated(args, lst_dirdata, lst_path->content);
 		print_result(result);
 		lst_path = lst_path->next;
-		if(lst_path != NULL && (file_is_dir(lst_path->content)))
+		if(lst_path != NULL && (file_is_adir(lst_path->content)))
 			write(STDOUT_FILENO, "\n", 1);
 	}
 	return 0;

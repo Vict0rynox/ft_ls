@@ -20,7 +20,7 @@ void illegal_option(const char *options);
 
 t_list *read_file(char *pathname, t_list **lst_files);
 
-t_list *read_info(char *pathname);
+t_list *read_info(char *pathname, t_args *args);
 
 char *ft_char_prefix(char *str, size_t len, char c);
 

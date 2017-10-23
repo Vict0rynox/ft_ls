@@ -10,12 +10,14 @@ char *file_get_target_name(char *pathname)
 
 	org_filename = ft_strnew(1024);
 	len = readlink(pathname, org_filename, 1024);
-	if(len < 0)
-		error_message(pathname);
-	tmp = org_filename;
-	org_filename = ft_strncpy(ft_strnew((size_t)len), tmp, (size_t)len);
-	free(tmp);
-	return (org_filename);
+	if(len >= 0)
+	{
+		tmp = org_filename;
+		org_filename = ft_strncpy(ft_strnew((size_t)len), tmp, (size_t)len);
+		free(tmp);
+		return (org_filename);
+	}
+	return (NULL);
 }
 
 char *file_get_filename(t_file *file)

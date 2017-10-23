@@ -35,12 +35,17 @@ t_list *read_directory_data(char *dirname, t_list **lst_files)
 	return *lst_files;
 }
 
-t_list *read_info(char *pathname)
+t_list *read_info(char *pathname, t_args *args)
 {
 	t_list *lst_files;
+	t_bool is_dir;
 
 	lst_files = NULL;
-	if(file_is_dir(pathname))
+	if(args->l)
+		is_dir = file_is_dir(pathname);
+	else
+		is_dir = file_is_adir(pathname);
+	if(is_dir)
 		lst_files = read_directory_data(pathname, &lst_files);
 	else
 		lst_files = read_file(pathname, &lst_files);

@@ -57,6 +57,9 @@ int		alpha_sort(char *pathname1, char *pathname2)
 t_bool	file_is_adir(char *pathname)
 {
 	t_bool result;
+
+	if(pathname == NULL)
+		return (D_FALSE);
 	if(file_is_dir(pathname))
 		return (D_TRUE);
 	pathname = file_get_target_name(pathname);
