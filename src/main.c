@@ -76,9 +76,9 @@ int		type_sort(char *pathname1, char *pathname2)
 {
 	if(pathname1 == NULL || pathname2 == NULL)
 		return (NAN);
-	if(file_is_dir(pathname1) && !file_is_dir(pathname2))
+	if(file_is_adir(pathname1) && !file_is_adir(pathname2))
 		return -1;
-	if(file_is_dir(pathname1) && !file_is_dir(pathname1))
+	if(file_is_adir(pathname1) && !file_is_adir(pathname1))
 		return 1;
 	return (0);
 }
