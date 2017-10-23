@@ -6,6 +6,8 @@ t_bool	file_is_dir(const char *pathname)
 {
 	struct stat file_stat;
 
+	if(pathname == NULL)
+		return (NULL);
 	if(lstat(pathname, &file_stat) == 0)
 	{
 		if(S_ISDIR(file_stat.st_mode))
@@ -20,6 +22,8 @@ t_bool	file_is_link(const char *pathname)
 {
 	struct stat file_stat;
 
+	if(pathname == NULL)
+		return (NULL);
 	if(lstat(pathname, &file_stat) == 0)
 	{
 		if(S_ISLNK(file_stat.st_mode))
