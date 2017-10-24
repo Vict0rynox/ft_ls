@@ -80,6 +80,11 @@ SOURCES=ft_atoi.c \
 	ft_strwordc.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	ft_lstfree_widtoute_data.c \
+	ft_lstrev.c \
+	ft_lstsort.c \
+	ft_char_prefix.c \
+	ft_char_sufix.c \
 	get_next_line.c
 
 OBJECTS=$(SOURCES:.c=.o)

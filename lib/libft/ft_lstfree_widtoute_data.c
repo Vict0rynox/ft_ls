@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_args.c                                         :+:      :+:    :+:   */
+/*   ft_lstfree_widtoute_data.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 12:10:19 by vvasilie          #+#    #+#             */
-/*   Updated: 2017/10/24 12:10:19 by vvasilie         ###   ########.fr       */
+/*   Created: 2017/10/24 12:10:31 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:31 by vvasilie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <options/options.h>
-#include <stdlib.h>
+#include <libft.h>
 
-t_args	*new_args(void)
+void	ft_lstfree_widtoute_data(t_list **lst)
 {
-	t_args	*options;
+	t_list *lst_ptr;
+	t_list *tmp;
 
-	options = (t_args*)malloc(sizeof(t_args));
-	if (options == NULL)
-		return (NULL);
-	options->l = 0;
-	options->G = 0;
-	options->up_r = 0;
-	options->a = 0;
-	options->r = 0;
-	options->t = 0;
-	options->firt_path = NULL;
-	options->alow_tire = 0;
-	return (options);
+	lst_ptr = *lst;
+	while (lst_ptr != NULL)
+	{
+		tmp = lst_ptr;
+		lst_ptr = lst_ptr->next;
+		free(tmp);
+	}
+	*lst = NULL;
 }

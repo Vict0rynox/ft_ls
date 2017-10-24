@@ -19,7 +19,7 @@ set(FILE_SOURCE_FILES
         src/file/file_remove.c
         src/file/file_get_type.c
         src/file/file_get_acr.c
-        src/file/file_get_owner.c src/file/file_get_group.c src/file/file_get_mimedate.c src/file/file_get_filename.c src/file/file_get_lcount.c src/file/file_get_size.c src/file/file_get_basename.c src/file/file_get_path.c src/file/file_get_pathname.c src/file/file_is_dir.c)
+        src/file/file_get_owner.c src/file/file_get_group.c src/file/file_get_mimedate.c src/file/file_get_filename.c src/file/file_get_lcount.c src/file/file_get_size.c src/file/file_get_basename.c src/file/file_get_path.c src/file/file_get_pathname.c src/file/file_is_dir.c src/file/file_get_time.c src/file/file_is_adir.c src/file/new_file_info.c src/file/file_info_size_init.c)
 
 set(OPTIONS_SOURCE_FILES
         src/options/dirdata/behavior.c
@@ -38,7 +38,7 @@ set(SOURCE_FILES
         src/ft_ls.c
         src/main.c
         src/read_info.c
-        src/options/dirdata/decorated_columns.c)
+        src/options/dirdata/decorated_columns.c src/error_message.c src/illegal_option.c src/filter_args.c)
 
 add_executable(ft_ls ${SOURCE_FILES})
 

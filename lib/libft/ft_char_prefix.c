@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_args.c                                         :+:      :+:    :+:   */
+/*   ft_char_prefix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 12:10:19 by vvasilie          #+#    #+#             */
-/*   Updated: 2017/10/24 12:10:19 by vvasilie         ###   ########.fr       */
+/*   Created: 2017/10/24 12:10:31 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:31 by vvasilie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <options/options.h>
-#include <stdlib.h>
+#include <libft.h>
 
-t_args	*new_args(void)
+char	*ft_char_prefix(char *str, size_t len, char c)
 {
-	t_args	*options;
+	char	*pref;
+	char	*new_str;
+	size_t	count;
 
-	options = (t_args*)malloc(sizeof(t_args));
-	if (options == NULL)
-		return (NULL);
-	options->l = 0;
-	options->G = 0;
-	options->up_r = 0;
-	options->a = 0;
-	options->r = 0;
-	options->t = 0;
-	options->firt_path = NULL;
-	options->alow_tire = 0;
-	return (options);
+	count = len - ft_strlen(str);
+	pref = ft_strnew(count);
+	ft_memset(pref, c, count);
+	new_str = ft_strjoin(pref, str);
+	free(pref);
+	free(str);
+	return (new_str);
 }

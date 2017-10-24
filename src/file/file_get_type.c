@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file_get_type.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/24 12:10:18 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:18 by vvasilie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <file.h>
 #include <sys/stat.h>
 
-char *file_get_type(t_file *file)
+char	*file_get_type(t_file *file)
 {
-	char *c;
+	char	*c;
 
-	if(file == NULL)
-		return NULL;
+	if (file == NULL)
+		return (NULL);
 	c = ft_strdup("-");
 	if (S_ISLNK(file->stat->st_mode))
 		c = ft_strdup("l");

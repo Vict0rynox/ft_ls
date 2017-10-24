@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_args.c                                         :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 12:10:19 by vvasilie          #+#    #+#             */
-/*   Updated: 2017/10/24 12:10:19 by vvasilie         ###   ########.fr       */
+/*   Created: 2017/10/24 12:10:31 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:31 by vvasilie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <options/options.h>
-#include <stdlib.h>
+#include <libft.h>
 
-t_args	*new_args(void)
+t_list	*ft_lstrev(t_list *lst)
 {
-	t_args	*options;
+	t_list	*new_lst;
+	t_list	*lst_next;
 
-	options = (t_args*)malloc(sizeof(t_args));
-	if (options == NULL)
+	new_lst = NULL;
+	if (lst == NULL)
 		return (NULL);
-	options->l = 0;
-	options->G = 0;
-	options->up_r = 0;
-	options->a = 0;
-	options->r = 0;
-	options->t = 0;
-	options->firt_path = NULL;
-	options->alow_tire = 0;
-	return (options);
+	while (lst != NULL)
+	{
+		lst_next = lst->next;
+		ft_lstadd(&new_lst, lst);
+		lst = lst_next;
+	}
+	return (new_lst);
 }

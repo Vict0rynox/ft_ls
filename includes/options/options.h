@@ -1,60 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   options.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/24 12:10:39 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:39 by vvasilie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef OPTIONS_H
-#define OPTIONS_H
+# define OPTIONS_H
 
-#include <libft.h>
+# include <libft.h>
 
-typedef struct s_agrs t_args;
-typedef struct s_file_info t_file_info;
-typedef struct s_file_info_size t_file_info_size;
+typedef struct s_agrs	t_args;
 
-struct s_agrs
+struct					s_agrs
 {
 	char a;
 	char r;
 	char t;
 	char l;
-	char G;
-	char R;
+	char up_r;
 	char *firt_path;
 	char alow_tire;
 };
 
-struct s_file_info
-{
-	char *type;
-	char *acr;
-	char *lcount;
-	char *owner;
-	char *group;
-	char *size;
-	char *mimedate;
-	char *filename;
-};
+t_args					*new_args();
 
-struct s_file_info_size
-{
-	size_t type;//1
-	size_t acr;//9
-	size_t lcount;
-	size_t owner;
-	size_t group;
-	size_t size;
-	size_t mimedate;//12
-	size_t filename;
-};
+void					options_by_string(t_args *args, char *str);
 
-t_args *new_args();
+t_list					*behavior(t_args *args, t_list *lst_dirdata);
 
-void options_by_string(t_args *args, char *str);
+void					filter(t_args *args, t_list **lst_dirdata);
 
-t_list *behavior(t_args *args, t_list *lst_dirdata);
+char					*decorated(
+	t_args *args, t_list *lst_dirdata, char *dir);
 
-void filter(t_args *args, t_list **lst_dirdata);
+char					*decorated_default(
+	t_args *args, t_list *lst_dirdata, const char *dir);
 
-char *decorated(t_args *args, t_list *lst_dirdata, char *dir);
-
-char *decorated_default(t_args *args, t_list *lst_dirdata, const char *dir);
-
-char *decorated_columns(t_args *args, t_list *lst_dirdata, const char *dir);
+char					*decorated_columns(
+	t_args *args, t_list *lst_dirdata, const char *dir);
 
 #endif

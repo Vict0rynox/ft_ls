@@ -15,5 +15,5 @@
 size_t	ft_putstrs(char const *s)
 {
 	ft_putstr(s);
-	return ft_strlen(s);
+	return (ft_strlen(s));
 }

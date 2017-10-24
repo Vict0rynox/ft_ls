@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_args.c                                         :+:      :+:    :+:   */
+/*   file_is_adir.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 12:10:19 by vvasilie          #+#    #+#             */
-/*   Updated: 2017/10/24 12:10:19 by vvasilie         ###   ########.fr       */
+/*   Created: 2017/10/24 12:10:18 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:18 by vvasilie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <options/options.h>
-#include <stdlib.h>
+#include <file.h>
 
-t_args	*new_args(void)
+t_bool	file_is_adir(char *pathname)
 {
-	t_args	*options;
+	t_bool	result;
 
-	options = (t_args*)malloc(sizeof(t_args));
-	if (options == NULL)
-		return (NULL);
-	options->l = 0;
-	options->G = 0;
-	options->up_r = 0;
-	options->a = 0;
-	options->r = 0;
-	options->t = 0;
-	options->firt_path = NULL;
-	options->alow_tire = 0;
-	return (options);
+	if (pathname == NULL)
+		return (D_FALSE);
+	if (file_is_dir(pathname))
+		return (D_TRUE);
+	pathname = file_get_target_name(pathname);
+	if (file_is_dir(pathname))
+		result = D_TRUE;
+	else
+		result = D_FALSE;
+	if (pathname != NULL)
+		free(pathname);
+	return (result);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_is_dir.c                                      :+:      :+:    :+:   */
+/*   new_file_info.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,37 +11,19 @@
 /* ************************************************************************** */
 
 #include <file.h>
-#include <sys/stat.h>
-#include <ft_ls.h>
 
-t_bool	file_is_dir(const char *pathname)
+t_file_info	*new_file_info(t_file *file)
 {
-	struct stat	file_stat;
+	t_file_info	*file_info;
 
-	if (pathname == NULL)
-		return (D_FALSE);
-	if (lstat(pathname, &file_stat) == 0)
-	{
-		if (S_ISDIR(file_stat.st_mode))
-			return (D_TRUE);
-		else
-			return (D_FALSE);
-	}
-	return (D_FALSE);
-}
-
-t_bool	file_is_link(const char *pathname)
-{
-	struct stat file_stat;
-
-	if (pathname == NULL)
-		return (D_FALSE);
-	if (lstat(pathname, &file_stat) == 0)
-	{
-		if (S_ISLNK(file_stat.st_mode))
-			return (D_TRUE);
-		else
-			return (D_FALSE);
-	}
-	return (D_FALSE);
+	file_info = malloc(sizeof(t_file_info));
+	file_info->type = file_get_type(file);
+	file_info->acr = file_get_acr(file);
+	file_info->lcount = file_get_lcount(file);
+	file_info->owner = file_get_owner(file);
+	file_info->group = file_get_group(file);
+	file_info->size = file_get_size(file);
+	file_info->mimedate = file_get_mimedate(file);
+	file_info->filename = file_get_filename(file);
+	return (file_info);
 }

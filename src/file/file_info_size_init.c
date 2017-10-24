@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_args.c                                         :+:      :+:    :+:   */
+/*   file_info_size_init.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvasilie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 12:10:19 by vvasilie          #+#    #+#             */
-/*   Updated: 2017/10/24 12:10:19 by vvasilie         ###   ########.fr       */
+/*   Created: 2017/10/24 12:10:18 by vvasilie          #+#    #+#             */
+/*   Updated: 2017/10/24 12:10:18 by vvasilie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <options/options.h>
-#include <stdlib.h>
+#include <file.h>
 
-t_args	*new_args(void)
+t_file_info_size	file_info_size_init(void)
 {
-	t_args	*options;
+	t_file_info_size	size;
 
-	options = (t_args*)malloc(sizeof(t_args));
-	if (options == NULL)
-		return (NULL);
-	options->l = 0;
-	options->G = 0;
-	options->up_r = 0;
-	options->a = 0;
-	options->r = 0;
-	options->t = 0;
-	options->firt_path = NULL;
-	options->alow_tire = 0;
-	return (options);
+	size.lcount = 0;
+	size.owner = 0;
+	size.group = 0;
+	size.size = 0;
+	size.mimedate = 12;
+	size.filename = 0;
+	size.type = 1;
+	size.acr = 10;
+	return (size);
 }

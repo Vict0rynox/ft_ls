@@ -82,6 +82,6 @@ set(SOURCE_FILES libft.h get_next_line.h
         ft_tolower.c
         ft_toupper.c
         get_next_line.c
-        ft_lstmap.c)
+        ft_lstmap.c ft_lstsort.c ft_lstrev.c ft_lstfree_widtoute_data.c ft_char_sufix.c ft_char_prefix.c)
 
 add_library(libft STATIC ${SOURCE_FILES})

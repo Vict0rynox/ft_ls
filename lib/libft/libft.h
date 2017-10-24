@@ -177,7 +177,7 @@ t_list				*ft_lstadd_back(t_list **list, t_list *lst);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-void				ft_lstsort(t_list **list, int sort_func(void *data1, void *data2));
+void				ft_lstsort(t_list **list, int sort_func(void *, void *));
 
 t_list				*ft_lstrev(t_list *lst);
 
@@ -192,5 +192,9 @@ void				ft_putstrc(char const *s, t_color_enum color);
 void				ft_putstrc_fd(char const *s, int fd, t_color_enum color);
 
 size_t				ft_putstrs(const char *str);
+
+char				*ft_char_prefix(char *str, size_t len, char c);
+
+char				*ft_char_sufix(char *str, size_t len, char c);
 
 #endif
