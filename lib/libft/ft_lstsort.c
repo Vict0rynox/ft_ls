@@ -42,7 +42,7 @@ void	ft_lstsort(t_list **list, int sort_func(void *, void *))
 	t_list	*curr;
 	t_list	*prew;
 	size_t	list_size;
-	size_t		i;
+	size_t	i;
 
 	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return ;
