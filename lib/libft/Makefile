@@ -94,7 +94,7 @@ OBJECTS=$(SOURCES:.c=.o)
 	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
 
 $(NAME): $(OBJECTS)
-	$(AR) $(LDFLAGS) $(INCLUDES) $@ $(OBJECTS)
+	$(AR) $(LDFLAGS) $@ $(OBJECTS)
 
 all: $(SOURCES) $(NAME)
 
