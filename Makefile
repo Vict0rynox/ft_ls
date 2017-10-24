@@ -10,34 +10,41 @@ INCLUDES = -I./includes -I./lib/libft
 
 # Sources
 
-SRC_FILE = src/file/file_get_acr.c \
-	src/file/file_get_basename.c \
-	src/file/file_get_filename.c \
-	src/file/file_get_group.c \
-	src/file/file_get_lcount.c \
-	src/file/file_get_mimedate.c \
+SRC_FILE = src/file/file_new.c \
+	src/file/file_remove.c \
+	src/file/file_get_type.c \
+	src/file/file_get_acr.c \
 	src/file/file_get_owner.c \
+	src/file/file_get_group.c \
+	src/file/file_get_mimedate.c \
+	src/file/file_get_filename.c \
+	src/file/file_get_lcount.c \
+	src/file/file_get_size.c \
+	src/file/file_get_basename.c \
 	src/file/file_get_path.c \
 	src/file/file_get_pathname.c \
-	src/file/file_get_size.c \
-	src/file/file_get_type.c \
 	src/file/file_is_dir.c \
-	src/file/file_new.c \
-	src/file/file_remove.c
+	src/file/file_get_time.c \
+	src/file/file_is_adir.c \
+	src/file/new_file_info.c \
+	src/file/file_info_size_init.c
 
 SRC_OPTIONS = src/options/dirdata/behavior.c \
 	src/options/dirdata/decorated.c \
-	src/options/dirdata/decorated_columns.c \
-	src/options/dirdata/decorated_default.c \
 	src/options/dirdata/filter.c \
+	src/options/options_by_string.c \
 	src/options/new_args.c \
-	src/options/options_by_string.c
+	src/options/dirdata/decorated_default.c \
+	src/options/dirdata/decorated_columns.c
 
 SOURCE_FILES = $(SRC_FILE) \
 	$(SRC_OPTIONS) \
 	src/ft_ls.c \
 	src/main.c \
-	src/read_info.c
+	src/read_info.c \
+	src/error_message.c \
+	src/illegal_option.c \
+	src/filter_args.c
 
 OBJ_FILES =	$(SOURCE_FILES:.c=.o)
 

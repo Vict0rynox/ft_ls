@@ -2,11 +2,14 @@ CC=gcc
 AR=ar
 NAME=libft.a
 
+INCLUDES = -I./
 LDFLAGS=rcs
 CFLAGS=-c -Wall -Werror -Wextra
 
-SOURCES=ft_atoi.c \
+SOURCES= ft_atoi.c \
 	ft_bzero.c \
+	ft_char_prefix.c \
+	ft_char_sufix.c \
 	ft_digcount.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
@@ -21,12 +24,15 @@ SOURCES=ft_atoi.c \
 	ft_lstdel.c \
 	ft_lstdelone.c \
 	ft_lstdelone_s.c \
+	ft_lstfree_widtoute_data.c \
 	ft_lstiter.c \
 	ft_lstmap.c \
 	ft_lstnew.c \
 	ft_lstnew_c.c \
 	ft_lstpush_back.c \
+	ft_lstrev.c \
 	ft_lstsize.c \
+	ft_lstsort.c \
 	ft_memalloc.c \
 	ft_memccpy.c \
 	ft_memchr.c \
@@ -80,20 +86,15 @@ SOURCES=ft_atoi.c \
 	ft_strwordc.c \
 	ft_tolower.c \
 	ft_toupper.c \
-	ft_lstfree_widtoute_data.c \
-	ft_lstrev.c \
-	ft_lstsort.c \
-	ft_char_prefix.c \
-	ft_char_sufix.c \
 	get_next_line.c
 
 OBJECTS=$(SOURCES:.c=.o)
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
 
 $(NAME): $(OBJECTS)
-	$(AR) $(LDFLAGS) $@ $(OBJECTS)
+	$(AR) $(LDFLAGS) $(INCLUDES) $@ $(OBJECTS)
 
 all: $(SOURCES) $(NAME)
 
