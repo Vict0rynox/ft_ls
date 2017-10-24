@@ -21,7 +21,6 @@ t_args	*new_args(void)
 	if (options == NULL)
 		return (NULL);
 	options->l = 0;
-	options->G = 0;
 	options->up_r = 0;
 	options->a = 0;
 	options->r = 0;
